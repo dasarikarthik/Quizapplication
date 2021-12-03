@@ -12,9 +12,9 @@ public class Quiz extends JFrame implements ActionListener{
     public static int ans_given = 0;
     public static int score = 0;
     JLabel qno, question;
-    String q[][] = new String[10][5];
-    String pa[][] = new String[10][1];
-    String qa[][] = new String[10][2];
+    static String q[][] = new String[10][5];
+    static String pa[][] = new String[10][1];
+   static String qa[][] = new String[10][2];
     JRadioButton opt1, opt2, opt3, opt4;
     ButtonGroup options;
     
@@ -39,6 +39,7 @@ public class Quiz extends JFrame implements ActionListener{
         question.setFont(new Font("Tahoma", Font.PLAIN, 24));
         question.setBounds(150, 450, 900, 30);
         add(question);
+        
         
         q[0][0] = "Which is used to find and fix bugs in the Java programs.?";
         q[0][1] = "JVM";
@@ -112,6 +113,9 @@ public class Quiz extends JFrame implements ActionListener{
         qa[9][1] = "Bytecode is executed by JVM";
         
         
+        
+        
+        
         opt1 = new JRadioButton("");
         opt1.setBounds(170, 520, 700, 30);
         opt1.setFont(new Font("Dialog", Font.PLAIN, 20));
@@ -169,6 +173,19 @@ public class Quiz extends JFrame implements ActionListener{
         
         start(0);
         
+        
+        
+        
+        
+    }
+    public static void setQuestions(int num,String que,String a1,String a2,String a3,String a4,String ans){
+        q[num][0] = que;
+        q[num][1] = a1;
+        q[num][2] = a2;
+        q[num][3] = a3;
+        q[num][4] = a4;
+       qa[num][1] = ans;
+    
     }
     
     public void actionPerformed(ActionEvent ae){

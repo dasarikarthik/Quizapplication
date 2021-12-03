@@ -3,6 +3,12 @@ package simple.minds;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import net.proteanit.sql.DbUtils;
+import project.ConnectionProvider;
 
 public class Score extends JFrame implements ActionListener{
     
@@ -36,6 +42,20 @@ public class Score extends JFrame implements ActionListener{
         
         b1.setBounds(400, 270, 120, 30);
         add(b1);
+        
+        
+        try{
+        Connection con=ConnectionProvider.getcon();
+        Statement st=con.createStatement( ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        st.executeUpdate("insert Studenthistory values('"+username+"','"+score+"')");
+  
+        }
+        catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+        
     }
     public void actionPerformed(ActionEvent ae){
         this.setVisible(false);
