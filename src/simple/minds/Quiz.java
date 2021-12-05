@@ -39,8 +39,9 @@ public class Quiz extends JFrame implements ActionListener{
         question.setFont(new Font("Tahoma", Font.PLAIN, 24));
         question.setBounds(150, 450, 900, 30);
         add(question);
+    
         
-        
+        if(q[0][0]==null){
         q[0][0] = "Which is used to find and fix bugs in the Java programs.?";
         q[0][1] = "JVM";
         q[0][2] = "JDB";
@@ -111,7 +112,8 @@ public class Quiz extends JFrame implements ActionListener{
         qa[7][1] = "Java Archive";
         qa[8][1] = "java.lang.StringBuilder";
         qa[9][1] = "Bytecode is executed by JVM";
-        
+        }
+        else{}
         
         
         
